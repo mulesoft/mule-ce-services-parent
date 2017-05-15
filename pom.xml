@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <parent>
+        <groupId>org.mule.runtime</groupId>
+        <artifactId>mule</artifactId>
+        <version>4.0.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.mule.services</groupId>
+    <artifactId>mule-core-services-parent</artifactId>
+    <version>4.0.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <name>Mule Core Services Parent POM</name>
+    <description>Services which provide domain specific capabilities</description>
+
+    <properties>
+        <allureJunitVersion>1.4.23</allureJunitVersion>
+        <allure.maven.plugin.version>2.5</allure.maven.plugin.version>
+        <javaFormatter.plugin.version>1.8.0</javaFormatter.plugin.version>
+        <javaVersion>1.8</javaVersion>
+        <formatterConfigPath>formatter.xml</formatterConfigPath>
+        <formatterGoal>validate</formatterGoal>
+        <skipVerifications>false</skipVerifications>
+    </properties>
+
+    <scm>
+        <connection>scm:git:git://github.com/mulesoft/mule-ce-services-parent.git</connection>
+        <developerConnection>scm:git:git@github.com:mulesoft/mule-ce-services-parent.git</developerConnection>
+        <url>https://github.com/mulesoft/mule-ce-services-parent</url>
+    </scm>
+
+    <dependencies>
+        <dependency>
+            <groupId>ru.yandex.qatools.allure</groupId>
+            <artifactId>allure-junit-adaptor</artifactId>
+            <version>${allureJunitVersion}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>ru.yandex.qatools.allure</groupId>
+            <artifactId>allure-java-annotations</artifactId>
+            <version>${allureJunitVersion}</version>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-api</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>com.mycila</groupId>
+                    <artifactId>license-maven-plugin</artifactId>
+                    <version>${license.maven.plugin.version}</version>
+                    <configuration>
+                        <skip>${skipVerifications}</skip>
+                        <header>${licensePath}</header>
+                        <properties>
+                            <owner>MuleSoft, Inc</owner>
+                            <project.url>http://www.mulesoft.com</project.url>
+                        </properties>
+                        <excludes>
+                            <exclude>target/**</exclude>
+                            <exclude>**/.gitignore</exclude>
+                            <exclude>**/*.txt</exclude>
+                            <exclude>**/*.groovy</exclude>
+                            <exclude>**/*.sh</exclude>
+                            <exclude>**/*.bat</exclude>
+                            <exclude>**/*.ftl</exclude>
+                            <exclude>**/*.xml</exclude>
+                            <exclude>**/*.properties</exclude>
+                            <exclude>**/*.sample</exclude>
+                            <exclude>**/*.md</exclude>
+                            <exclude>**/*.xsl</exclude>
+                            <exclude>**/*.html</exclude>
+                            <exclude>**/*.css</exclude>
+                            <exclude>**/build-number.txt</exclude>
+    
+                            <exclude>**/org/springframework/**</exclude>
+                            <exclude>**/HttpTransactionContext.java</exclude>
+                            <exclude>**/HttpConnection.java</exclude>
+                            <exclude>**/BndMojo.java</exclude>
+                            <exclude>**/BobberArchetype.java</exclude>
+                            <exclude>**/BobberArchetypeMojo.java</exclude>
+                            <exclude>**/DummySSLServerSocketFactory.java</exclude>
+                            <exclude>**/MultipartConfiguration.java</exclude>
+    
+                            <exclude>**/ParamReader.java</exclude>
+                            <exclude>**/Part.java</exclude>
+                            <exclude>**/XMLStreamReaderToContentHandler.java</exclude>
+                            <exclude>**/__artifactId__IBean.java</exclude>
+                            <exclude>**/__artifactId__IBeanTestCase.java</exclude>
+                        </excludes>
+                        <includes>
+                            <include>**/*.java</include>
+                        </includes>
+                        <mapping>
+                            <java>SLASHSTAR_STYLE</java>
+                        </mapping>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <phase>compile</phase>
+                            <goals>
+                                <goal>check</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <groupId>com.marvinformatics.formatter</groupId>
+                    <artifactId>formatter-maven-plugin</artifactId>
+                    <version>${javaFormatter.plugin.version}</version>
+                    <configuration>
+                        <compilerCompliance>${javaVersion}</compilerCompliance>
+                        <compilerSource>${javaVersion}</compilerSource>
+                        <compilerTargetPlatform>${javaVersion}</compilerTargetPlatform>
+                        <configFile>${basedir}/${formatterConfigPath}</configFile>
+                        <configJsFile>${basedir}/${formatterConfigPath}</configJsFile>
+                        <lineEnding>LF</lineEnding>
+                        <aggregator>false</aggregator>
+                        <executionRoot>true</executionRoot>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <id>apply-format</id>
+                            <phase>compile</phase>
+                            <goals>
+                                <goal>${formatterGoal}</goal>
+                            </goals>
+                            <configuration>
+                                <skipFormatting>${skipVerifications}</skipFormatting>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>allure</id>
+            <build>
+                <pluginManagement>
+                    <plugins>
+                        <plugin>
+                            <groupId>org.apache.maven.plugins</groupId>
+                            <artifactId>maven-surefire-plugin</artifactId>
+                            <configuration>
+                                <testFailureIgnore>true</testFailureIgnore>
+                                <argLine>
+                                    -javaagent:${settings.localRepository}/org/aspectj/aspectjweaver/${aspectjVersion}/aspectjweaver-${aspectjVersion}.jar
+                                </argLine>
+                                <properties>
+                                    <property>
+                                        <name>listener</name>
+                                        <value>ru.yandex.qatools.allure.junit.AllureRunListener</value>
+                                    </property>
+                                </properties>
+                                <systemPropertyVariables>
+                                    <allure.profile.is.activated>true</allure.profile.is.activated>
+                                </systemPropertyVariables>
+                            </configuration>
+                            <dependencies>
+                                <dependency>
+                                    <groupId>org.aspectj</groupId>
+                                    <artifactId>aspectjweaver</artifactId>
+                                    <version>${aspectjVersion}</version>
+                                </dependency>
+                            </dependencies>
+                        </plugin>
+
+                        <!--Needed only to show reports locally. Run jetty:run and open localhost:8080 to show the report-->
+                        <plugin>
+                            <groupId>org.eclipse.jetty</groupId>
+                            <artifactId>jetty-maven-plugin</artifactId>
+                            <version>${jetty.maven.plugin.version}</version>
+                            <configuration>
+                                <webAppSourceDirectory>${project.build.directory}/site/allure-maven-plugin</webAppSourceDirectory>
+                                <stopKey>stop</stopKey>
+                                <stopPort>1234</stopPort>
+                            </configuration>
+                        </plugin>
+                    </plugins>
+                </pluginManagement>
+            </build>
+
+            <reporting>
+                <excludeDefaults>true</excludeDefaults>
+                <plugins>
+                    <plugin>
+                        <groupId>ru.yandex.qatools.allure</groupId>
+                        <artifactId>allure-maven-plugin</artifactId>
+                        <version>${allure.maven.plugin.version}</version>
+                    </plugin>
+                </plugins>
+            </reporting>
+        </profile>
+    </profiles>
+
+    <distributionManagement>
+        <downloadUrl>http://www.mulesoft.org/display/MULE/Download</downloadUrl>
+        <repository>
+            <id>mule-releases</id>
+            <name>Mule Release Repository</name>
+            <url>https://repository-master.mulesoft.org/nexus/content/repositories/releases</url>
+        </repository>
+        <snapshotRepository>
+            <id>mule-snapshots</id>
+            <name>Mule Snapshot Repository</name>
+            <url>https://repository-master.mulesoft.org/nexus/content/repositories/snapshots</url>
+            <uniqueVersion>false</uniqueVersion>
+        </snapshotRepository>
+    </distributionManagement>
+
+</project>
