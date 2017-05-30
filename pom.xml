@@ -64,7 +64,7 @@
                     <version>${license.maven.plugin.version}</version>
                     <configuration>
                         <skip>${skipVerifications}</skip>
-                        <header>${licensePath}</header>
+                        <header>com/mycila/maven/plugin/license/templates/CPAL.txt</header>
                         <properties>
                             <owner>MuleSoft, Inc</owner>
                             <project.url>http://www.mulesoft.com</project.url>
