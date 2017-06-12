@@ -12,7 +12,7 @@
 
     <groupId>org.mule.services</groupId>
     <artifactId>mule-core-services-parent</artifactId>
-    <version>4.0.0-BETA-SNAPSHOT</version>
+    <version>1.0.0-BETA-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>Mule Core Services Parent POM</name>
@@ -26,6 +26,7 @@
         <formatterConfigPath>formatter.xml</formatterConfigPath>
         <formatterGoal>validate</formatterGoal>
         <skipVerifications>false</skipVerifications>
+        <mule.version>4.0.0-BETA-SNAPSHOT</mule.version>
     </properties>
 
     <scm>
