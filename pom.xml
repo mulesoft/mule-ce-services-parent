@@ -26,6 +26,7 @@
         <formatterConfigPath>formatter.xml</formatterConfigPath>
         <formatterGoal>validate</formatterGoal>
         <skipVerifications>false</skipVerifications>
+        <mule.version>4.0.0-BETA-SNAPSHOT</mule.version>
     </properties>
 
     <scm>
