@@ -21,7 +21,7 @@
     <properties>
         <allureJunitVersion>2.0-BETA17</allureJunitVersion>
         <allureReportVersion>2.3.4</allureReportVersion>
-        <allure.maven.plugin.version>2.8</allure.maven.plugin.version>
+        <allure.maven.plugin.version>2.9</allure.maven.plugin.version>
         <javaVersion>1.8</javaVersion>
         <formatterConfigPath>formatter.xml</formatterConfigPath>
         <formatterGoal>validate</formatterGoal>
