@@ -19,8 +19,8 @@
     <description>Services which provide domain specific capabilities</description>
 
     <properties>
-        <allureJunitVersion>2.0-BETA17</allureJunitVersion>
-        <allureReportVersion>2.3.4</allureReportVersion>
+        <allureJunitVersion>2.6.0</allureJunitVersion>
+        <allureReportVersion>2.6.0</allureReportVersion>
         <allure.maven.plugin.version>2.9</allure.maven.plugin.version>
         <javaVersion>1.8</javaVersion>
         <formatterConfigPath>formatter.xml</formatterConfigPath>
