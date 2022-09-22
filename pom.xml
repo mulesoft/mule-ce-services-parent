@@ -12,7 +12,7 @@
 
     <groupId>org.mule.services</groupId>
     <artifactId>mule-core-services-parent</artifactId>
-    <version>1.4.0-20220919</version>
+    <version>1.4.0-20220922</version>
     <packaging>pom</packaging>
 
     <name>Mule Core Services Parent POM</name>
