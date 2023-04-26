@@ -19,6 +19,7 @@
     <description>Services which provide domain specific capabilities</description>
 
     <properties>
+        <javaModuleName>org.mule.runtime.service.parent</javaModuleName>
         <allureJunitVersion>2.8.1</allureJunitVersion>
         <allureReportVersion>2.8.1</allureReportVersion>
         <allure.maven.plugin.version>2.9</allure.maven.plugin.version>
