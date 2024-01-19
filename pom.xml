@@ -19,8 +19,6 @@
     <description>Services which provide domain specific capabilities</description>
 
     <properties>
-        <allureJunitVersion>2.8.1</allureJunitVersion>
-        <allureReportVersion>2.8.1</allureReportVersion>
         <allure.maven.plugin.version>2.9</allure.maven.plugin.version>
         <javaVersion>1.8</javaVersion>
         <formatterConfigPath>formatter.xml</formatterConfigPath>
@@ -45,7 +43,6 @@
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-junit4</artifactId>
-            <version>${allureJunitVersion}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
