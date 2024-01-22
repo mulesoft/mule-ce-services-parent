@@ -1,2 +1,3 @@
 projectType: runtime
 enableMavenTestStage: false
+jdkTool: OPEN-JDK17
