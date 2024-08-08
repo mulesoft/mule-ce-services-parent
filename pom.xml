@@ -19,7 +19,6 @@
     <description>Services which provide domain specific capabilities</description>
 
     <properties>
-        <javaVersion>1.8</javaVersion>
         <formatterConfigPath>formatter.xml</formatterConfigPath>
         <skipVerifications>false</skipVerifications>
         
