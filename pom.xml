@@ -27,7 +27,7 @@
         <formatterGoal>validate</formatterGoal>
         <skipVerifications>false</skipVerifications>
         
-        <mule.version>4.4.0-20241021</mule.version>
+        <mule.version>4.4.0-20241101-WITH-W-17110125</mule.version>
     </properties>
 
     <scm>
