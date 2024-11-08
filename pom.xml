@@ -22,11 +22,12 @@
     <properties>
         <formatterConfigPath>formatter.xml</formatterConfigPath>
         <skipVerifications>false</skipVerifications>
-        
+        <!-- Sevices are just implementations of apis defined elsewhere -->
+        <skipRevapiCheck>true</skipRevapiCheck>
+
         <mule.version>4.9.0-SNAPSHOT</mule.version>
 
         <licensePath>LICENSE_HEADER_CPAL.txt</licensePath>
-        <licenseYear>2023</licenseYear>
     </properties>
 
     <scm>
