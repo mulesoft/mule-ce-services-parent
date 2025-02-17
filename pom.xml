@@ -25,7 +25,7 @@
         <!-- Sevices are just implementations of apis defined elsewhere -->
         <skipRevapiCheck>true</skipRevapiCheck>
 
-        <mule.version>4.9.2-SNAPSHOT</mule.version>
+        <mule.version>4.9.2-rc1</mule.version>
 
         <licensePath>LICENSE_HEADER_CPAL.txt</licensePath>
     </properties>
