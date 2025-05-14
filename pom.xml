@@ -20,7 +20,6 @@
     <description>Services which provide domain specific capabilities</description>
 
     <properties>
-        <formatterConfigPath>formatter.xml</formatterConfigPath>
         <skipVerifications>false</skipVerifications>
         <!-- Sevices are just implementations of apis defined elsewhere -->
         <skipRevapiCheck>true</skipRevapiCheck>
