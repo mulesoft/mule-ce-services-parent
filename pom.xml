@@ -35,14 +35,6 @@
         <url>https://github.com/mulesoft/mule-ce-services-parent</url>
     </scm>
 
-    <dependencies>
-        <dependency>
-            <groupId>io.qameta.allure</groupId>
-            <artifactId>allure-junit4</artifactId>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
-
     <build>
         <pluginManagement>
             <plugins>
